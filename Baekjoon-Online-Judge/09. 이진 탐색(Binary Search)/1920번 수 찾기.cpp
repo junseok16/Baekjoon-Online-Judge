@@ -2,7 +2,7 @@
 * @title    : 1920번 수 찾기(실버 4)
 * @content  : 이진 탐색
 * @author   : 탁준석
-* @date     : 230205
+* @date     : 230206
 * @time     : 52ms
 * @memory   : 2412KB
 * @state    : 완료
@@ -12,8 +12,6 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-
-int binarySearch(int m);
 
 vector<int> seq;
 
@@ -32,27 +30,7 @@ int main(void) {
 	for (int j = 0; j < M; ++j) {
 		int t;
 		cin >> t;
-		cout << binarySearch(t) << '\n';
-	}
-	return 0;
-}
-
-int binarySearch(int t) {
-	int left = 0;
-	int right = seq.size() - 1;
-
-	while (left <= right) {
-		int mid = (left + right) / 2;
-
-		if (t > seq[mid]) {
-			left = mid + 1;
-		}
-		else if (t < seq[mid]) {
-			right = mid - 1;
-		}
-		else {
-			return 1;
-		}
+		cout << binary_search(seq.begin(), seq.end(), t) << '\n';
 	}
 	return 0;
 }
